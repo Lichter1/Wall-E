@@ -14,7 +14,7 @@ int x = 0;
 
 void setup() {
   Serial.begin(9600);
-  Serial.setTimeout(100);
+  Serial.setTimeout(70);
   pinMode(enA, OUTPUT);
   pinMode(enB, OUTPUT);
   pinMode(in1, OUTPUT);
@@ -38,14 +38,14 @@ void loop() {
 
   
   while (Serial.available() > 0){
-
+     delay(100);
      //int Head = Serial.parseInt();
      Speed = Serial.parseInt();
      turn = Serial.parseInt();
      x = 1;
      if (Serial.available()) {
       command = Serial.readStringUntil('\n');
-      command.trim();
+
      
       }}
     
@@ -94,13 +94,13 @@ void loop() {
     }
 
   if (rightSpeed > 0){
-    digitalWrite(in3, HIGH);
-    digitalWrite(in4, LOW);
+    digitalWrite(in3, LOW);
+    digitalWrite(in4, HIGH);
    }
    
     else {
-    digitalWrite(in3, LOW);
-    digitalWrite(in4, HIGH);
+    digitalWrite(in3, HIGH);
+    digitalWrite(in4, LOW);
     }
 
 
