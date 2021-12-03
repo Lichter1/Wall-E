@@ -57,8 +57,8 @@ while True:
             positionY -= 2
 
 
-    print(positionX)
-    print(positionY)
+    
+    print(b"0 0",positionX,positionY,"20 0 180/n")
 
     ser.write(b"0 0",positionX,positionY,"20 0 180/n")
 
