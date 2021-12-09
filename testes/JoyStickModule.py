@@ -36,11 +36,7 @@ def getJS(name=''):
     else:
         return buttons[name]
 def main():
-    #print(getJS()) # To get all values
-    #sleep(0.1)
-    jsVal = getJS()
-    test = " "+str(jsVal['axis1'])+" "+str(jsVal['axis2'])+" "+str(jsVal['axis3'])+str("/n")
-    print (test.encode('utf-8'))
+    print(getJS()) # To get all values
     sleep(0.1)
     #print(getJS('share')) # To get a single value
     #sleep(0.05)

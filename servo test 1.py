@@ -6,7 +6,7 @@ from gpiozero.pins.pigpio import PiGPIOFactory
 
 factory = PiGPIOFactory()
 
-servo = Servo(18, min_pulse_width=1/1000, max_pulse_width=2/1000, pin_factory=factory)
+servo = Servo(2, min_pulse_width=1/1000, max_pulse_width=2/1000, pin_factory=factory)
 servo.value=0
 sleep(1)
 servo.value=None
