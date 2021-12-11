@@ -72,6 +72,10 @@ def trackFace(cx, frameWidth, pid, pAngle_x):
 
     if cx[0][0] != 0:
         positionX = int(positionX - addAngle)
+        if positionX <0:
+            print("Move Right")
+        if positionX > 180:
+            print("Move Left")
         np.clip(positionX, 0, 180)
         print(positionX)
         servo0.angle = positionX
