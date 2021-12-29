@@ -17,8 +17,6 @@ if __name__ == '__main__':
 
         ### Print command in the serial ###
         Command = "I have started"
-        print (Command.encode('utf-8'))
         ser.write(Command.encode('utf-8'))
-        sleep(0.1)
         ArduinoCom = ser.readline().decode('utf-8').rstrip()
         print(ArduinoCom)
