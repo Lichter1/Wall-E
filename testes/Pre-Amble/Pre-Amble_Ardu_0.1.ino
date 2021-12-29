@@ -9,9 +9,10 @@ Serial.println("Start");
 void loop() {
   // put your main code here, to run repeatedly:
   if (Serial.available()) {
-    Serial.println("Raspbeery pi Command:");
+   // Serial.println();
     command = Serial.readStringUntil('\n');
     command.trim();
+    command = "Raspbeery pi Command: " + command;
     Serial.println(command);
     Serial.println("Start");  
   }}
