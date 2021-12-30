@@ -1,5 +1,5 @@
 String command;
-
+String RaspiCommand;
 // Define Motor Outputs on PCA9685 board
 int motorX = 0;
 
@@ -33,10 +33,10 @@ void moveServo(int controlIn, int motorOut)
     controlIn = 1;
    }
    
-   else if (controlIn < -1){
+   else if (controlIn < -1){RaspiCommand
     controlIn = -1;
    }
-  int pulse_wide, pulse_width ;
+  int pulse_wide, pulse_widthRaspiCommand ;
   
 
   // Convert to pulse width
@@ -54,8 +54,8 @@ void loop() {
   if (Serial.available()) {
     command = Serial.readIntUntil('\n');
     //command.trim();
-    command = "Raspbeery pi Command: " + command;
-    Serial.println(command);
+    RaspiCommand = "Raspbeery pi Command: " + String(command);
+    Serial.println(RaspiCommand);
     
     moveServo(command, motorX);
     
