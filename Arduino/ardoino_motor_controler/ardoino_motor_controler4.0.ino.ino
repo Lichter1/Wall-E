@@ -16,7 +16,7 @@ int SEspeed = 0;
 int SEturn = 0;
 int SEhead_X = 0;
 int SEhead_Y_H = 0;
-int SEhead_Y_L = 0;
+int head_Y_L = 0;
 int SEhead_I_R = 0;
 int SEhead_I_L = 0;
 int SEhead_A_R = 0;
@@ -134,12 +134,24 @@ void moveMotor(int Speed, int Turn){
 void moveServo(int controlIn, int motorOut)
 {
     
-   if (controlIn > 180){
+   if (controlIn >= 180){
     controlIn = 180;
+    
+    if (motorOut = 1){
+      head_Y_L= head_Y_L + 5;
+      moveServo(head_Y_L, motorY_L);
+      
+    }
    }
    
-   else if (controlIn < 0){
+   else if (controlIn <= 0){
     controlIn = 0;
+
+    if (motorOut = 1) {
+      head_Y_L = head_Y_L - 5;
+      moveServo(head_Y_L, motorY_L);
+      
+    }
    }
   int pulse_wide, pulse_width ;
   //Serial.println(controlIn);
@@ -164,11 +176,11 @@ void loop() {
     SEturn = Serial.parseInt();
     SEhead_X = Serial.parseInt();
     SEhead_Y_H = Serial.parseInt();
-    SEhead_Y_L = Serial.parseInt();
-    SEhead_I_R = Serial.parseInt();
-    SEhead_I_L = Serial.parseInt();
-    SEhead_A_R = Serial.parseInt();
-    SEhead_A_L = Serial.parseInt();
+    //SEhead_Y_L = Serial.parseInt();
+  //  SEhead_I_R = Serial.parseInt();
+    //SEhead_I_L = Serial.parseInt();
+    //SEhead_A_R = Serial.parseInt();
+   // SEhead_A_L = Serial.parseInt();
     
     if (Serial.available()) {
       command = Serial.readStringUntil('\n');
@@ -181,11 +193,11 @@ void loop() {
    moveMotor(SEspeed, SEturn);
    moveServo(SEhead_X, motorX);
    moveServo(SEhead_Y_H, motorY_H);
-   moveServo(SEhead_Y_L, motorY_L);
-   moveServo(SEhead_I_R, motorI_R);
-   moveServo(SEhead_I_L, motorI_L);
-   moveServo(SEhead_A_R, motorA_R);
-   moveServo(SEhead_A_L, motorA_L);
+   //moveServo(SEhead_Y_L, motorY_L);
+   //moveServo(SEhead_I_R, motorI_R);
+   //moveServo(SEhead_I_L, motorI_L);
+   //moveServo(SEhead_A_R, motorA_R);
+   //moveServo(SEhead_A_L, motorA_L);
     
     Serial.println("Start");  
   }}
