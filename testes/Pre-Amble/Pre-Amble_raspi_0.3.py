@@ -28,7 +28,12 @@ if __name__ == '__main__':
 
         ### Print command in the serial ###
         jsVal = js.getJS()
-        Command = str(ax_map((jsVal['axis1']),"motor")+ " " + str(ax_map((jsVal['axis2']),"motor")+ " " + str(ax_map((jsVal['axis1']),"Servo")+ " " + str(ax_map((jsVal['axis1']),"Servo")
+        Speed = str(ax_map((jsVal['axis3']),"motor"))
+        Turn = str(ax_map((jsVal['axis4']),"motor"))
+        Head_X = str(ax_map((jsVal['axis1']),"Servo"))
+        Head_Y = str(ax_map((jsVal['axis2']),"Servo"))
+
+        Command = Speed + " " + Turn + " " + Head_X + " " + Head_Y
         ser.write(Command.encode('utf-8'))
         ArduinoCom = ser.readline().decode('utf-8').rstrip()
         print(ArduinoCom)
